@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title>D3 Starter Fun Time!</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="./styles/simple-style.css">
+
+  <link rel="icon" href="./favicon/favicon.ico">
+</head>
+
+<body>
+    <clipPath id ="myClip">
+    <div id="chartDiv">
+    </div>
+</clipPath>
+    <!-- <div id="otherDiv"></div> -->
+
+
+     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- <script src="./scripts/main.js"></script>  -->
+
+    <script type= "text/javascript">
+    duration = 5000
+    var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", 700)
+                                     .attr("height", 700);
+
+
+
+ //Draw the Circle
+ var rect = svgContainer.append("rect")
+                            .attr("x", 90)
+                            .attr("y", 90)
+                            .attr("width", 20)
+                            .attr("fill","black")
+                            .attr("height", 100);
+
+var rect = svgContainer.append("rect")
+                            .attr("x", 150)
+                            .attr("y", 150)
+                            .attr("width", 20)
+                            .attr("fill","black")
+                            .attr("height", 40);
+
+</script>
+</body>
+</html>
