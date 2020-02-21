@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title>D3 Starter Fun Time!</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="./styles/simple-style.css">
+	<link rel="icon" href="./favicon/favicon.ico">
+</head>
+<body>
+<!-- <style>
+.button{
+	position:absolute;
+				margin-bottom: 60%;
+				margin-right: 30%;
+                bottom:0;
+                right:0;
+}
+</style> -->
+
+
+	<div id="chartDiv">
+			<button class = "button" id="next">Play Animation</button>
+	</div>
+	  <div id="changeText"></div>
+	<!-- <div id="otherDiv"></div> -->
+
+
+	 <script src="https://d3js.org/d3.v5.min.js"></script>
+	<!-- <script src="./scripts/main.js"></script>  -->
+
+	<script type= "text/javascript">
+	duration = 5000
+	var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", 700)
+									 .attr("height", 700);
+
+
+	var myLine = svgContainer.append("svg:line")
+						.attr("x1", 40)
+						.attr("y1", 150)
+						.attr("x2", 250)
+						.attr("y2", 150)
+						.style("stroke", "rgb(0,0,0")
+
+	var angle = svgContainer.append("svg:line")
+						.attr("x1", 40)
+						.attr("y1", 150)
+						.attr("x2", 40)
+						.attr("y2", 10)
+						.style("stroke", "rgb(0,0,0)")
+	var line = svgContainer.append("svg:line")
+						.attr("x1", 40)
+						.attr("y1", 150)
+						.attr("x2", 40)
+						.attr("y2", 10)
+						.style("stroke", "rgb(0,0,0)")
+						.attr("stroke-dasharray", "4");
+
+	document.getElementById("next").onclick = function() {moveMed(angle)};
+
+	var text = ["Stage 1", "Stage 2"];
+	var counter = 0;
+	var elem = document.getElementById("changeText");
+	//var inst = setInterval(change, 1000);
+	elem.innerHTML = text[0];
+	function change(flag)
+	{
+	    elem.innerHTML = text[1];
+	}
+
+
+	function moveSlow(angle){
+		angle.transition()
+			.duration(duration*2)
+			.attr("x2", 200)
+			setTimeout(function(){ change(); }, duration*2);
+	}
+
+	function moveFast(angle){
+		angle.transition()
+			.duration(duration/2)
+			.attr("x2", 200)
+			setTimeout(function(){ change(); }, duration/2);
+	}
+
+	function moveMed(angle){
+		angle.transition()
+			.duration(duration)
+			.attr("x2", 200)
+			setTimeout(function(){ change(); }, duration);
+	}
+	</script>
+</body>
+</html>
