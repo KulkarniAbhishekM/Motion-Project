@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title>D3 Starter Fun Time!</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="./styles/simple-style.css">
+  <link rel="icon" href="./favicon/favicon.ico">
+</head>
+
+<body>
+    <clipPath id ="myClip">
+    <div id="chartDiv">
+            <button id="next" style="position:fixed;top:0px; left:0px">Play Animation</button>
+    </div>
+		<div id="changeText"></div>
+</clipPath>
+    <!-- <div id="otherDiv"></div> -->
+
+
+     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- <script src="./scripts/main.js"></script>  -->
+
+    <script type= "text/javascript">
+    duration = 5000
+    var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", 700)
+                                     .attr("height", 700);
+
+
+
+ //Draw the Circle
+ var rect = svgContainer.append("rect")
+                            .attr("x", 90)
+                            .attr("y", 160)
+                            .attr("width", 20)
+                            .attr("fill","black")
+                            .attr("height", 40);
+ document.getElementById("next").onclick = function() {redSlow(rect)};
+
+ var text = ["Stage 1", "Stage 2"];
+ var counter = 0;
+ var elem = document.getElementById("changeText");
+ //var inst = setInterval(change, 1000);
+ elem.innerHTML = text[0];
+ elem.style.position = "fixed";
+ elem.style.left = "85px";
+ elem.style.top = "70px";
+ function change(flag)
+ {
+   elem.innerHTML = text[1];
+   elem.style.position = "fixed";
+   elem.style.left = "85px";
+   elem.style.top = "70px";
+   elem.style.visibility = "visible";
+ }
+
+ function redSlow(rect){
+   elem.style.visibility = "hidden";
+    rect.transition().duration(duration*2)
+                        .attr("y", 90)
+                       .attr("height", 100);
+											 setTimeout(function(){ change(); }, duration*2);
+    }
+
+function redMed(rect){
+  elem.style.visibility = "hidden";
+    rect.transition().duration(duration)
+                        .attr("y", 160)
+                       .attr("height", 40);
+											 setTimeout(function(){ change(); }, duration);
+    }
+
+function redFast(rect){
+  elem.style.visibility = "hidden";
+    rect.transition().duration(duration/2)
+                        .attr("y", 160)
+                       .attr("height", 40);
+											 setTimeout(function(){ change(); }, duration/2);
+    }
+
+    </script>
+</body>
+</html>
